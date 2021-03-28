@@ -13,7 +13,7 @@ fs.opendir(new URL('file:///' + mainDir), async (err, fdir) => {
         console.log(fdir.path);
         var dirent=await fdir.read();
         while ( dirent ) {
-            console.log(fdir.path  + dirent.name + ' ' + dirent.isFile());
+            console.log(fdir.path  + dirent.name + ' ' + (dirent.isFile() ? 'File' : 'Directory'));
             dirent=await fdir.read();
         }
         await fdir.close();
